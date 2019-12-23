@@ -10,7 +10,10 @@ import Foundation
 import UIKit
 
 class InitialScreenViewController : UIViewController {
+    
+    @IBOutlet weak var initialMainView: UIView!
     @IBOutlet weak var fileNameTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -22,6 +25,7 @@ class InitialScreenViewController : UIViewController {
     }
     
     @IBAction func onStartParseTouched(_ sender: Any) {
+        animateActivityIndicator(on: true)
         let csvString = Utils.readDataFromCSV(fileName: fileNameTextField.text!)
         
         if(csvString == nil){
@@ -32,12 +36,23 @@ class InitialScreenViewController : UIViewController {
             let csvStringFormatted = Utils.removeCSVUnnecessaryCharacters(string: csvString!)
             let issueModel = IssueModel()
             issueModel.populateFields(csvString: csvStringFormatted)
+            animateActivityIndicator(on: false)
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let destinationVC = storyBoard.instantiateViewController(withIdentifier: "CSVDetailsViewController") as! CSVDetailsViewController
             destinationVC.issueModel = issueModel
             navigationController?.pushViewController(destinationVC, animated: true)
         }
         
+    }
+    
+    func animateActivityIndicator(on: Bool){
+        if(on) {
+            activityIndicator.startAnimating()
+            initialMainView.isUserInteractionEnabled = false
+        } else {
+            activityIndicator.stopAnimating()
+            initialMainView.isUserInteractionEnabled = true
+        }
     }
     
     func createAlert(title: String, message: String) {

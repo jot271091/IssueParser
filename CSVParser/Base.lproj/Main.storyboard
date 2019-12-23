@@ -55,13 +55,16 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpr-gF-0fX">
-                                        <rect key="frame" x="190" y="463" width="34" height="30"/>
+                                        <rect key="frame" x="190" y="463" width="34" height="37"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="onStartParseTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nvs-WE-O6k"/>
                                             <action selector="onStartParseTouched:" destination="ia4-JK-15M" eventType="touchUpInside" id="RNb-Jv-vlf"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="751" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EHS-My-fip">
+                                        <rect key="frame" x="272" y="463" width="20" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -69,11 +72,15 @@
                                     <constraint firstItem="4SB-Ki-qJv" firstAttribute="leading" secondItem="12L-Ir-nlB" secondAttribute="leading" id="9Ue-Ka-VQk"/>
                                     <constraint firstItem="12L-Ir-nlB" firstAttribute="centerX" secondItem="mgK-U6-Zfo" secondAttribute="centerX" id="Bq0-hp-h4I"/>
                                     <constraint firstItem="12L-Ir-nlB" firstAttribute="centerY" secondItem="mgK-U6-Zfo" secondAttribute="centerY" constant="-10" id="KsS-Kn-UMw"/>
+                                    <constraint firstItem="EHS-My-fip" firstAttribute="bottom" secondItem="fpr-gF-0fX" secondAttribute="bottom" id="NPk-Cr-1PC"/>
                                     <constraint firstItem="wyZ-ek-Ea0" firstAttribute="centerX" secondItem="mgK-U6-Zfo" secondAttribute="centerX" id="T6s-c1-aI7"/>
+                                    <constraint firstAttribute="trailing" secondItem="EHS-My-fip" secondAttribute="trailing" constant="122" id="VKg-D9-bPm"/>
                                     <constraint firstItem="fpr-gF-0fX" firstAttribute="top" secondItem="4SB-Ki-qJv" secondAttribute="bottom" constant="20" id="WU7-H9-UN6"/>
                                     <constraint firstItem="4SB-Ki-qJv" firstAttribute="trailing" secondItem="12L-Ir-nlB" secondAttribute="trailing" id="eec-7w-YwL"/>
+                                    <constraint firstItem="EHS-My-fip" firstAttribute="top" secondItem="fpr-gF-0fX" secondAttribute="top" id="fH8-Fx-VtH"/>
                                     <constraint firstItem="4SB-Ki-qJv" firstAttribute="top" secondItem="12L-Ir-nlB" secondAttribute="bottom" constant="20" id="gEW-nD-MbT"/>
                                     <constraint firstItem="wyZ-ek-Ea0" firstAttribute="top" secondItem="mgK-U6-Zfo" secondAttribute="top" constant="20" id="kNM-6V-p9P"/>
+                                    <constraint firstItem="EHS-My-fip" firstAttribute="leading" secondItem="fpr-gF-0fX" secondAttribute="trailing" constant="48" id="vtG-Cz-t9N"/>
                                     <constraint firstItem="fpr-gF-0fX" firstAttribute="centerX" secondItem="mgK-U6-Zfo" secondAttribute="centerX" id="zci-v4-QZ5"/>
                                 </constraints>
                             </view>
@@ -89,7 +96,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="TTc-T3-Pt8"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="EHS-My-fip" id="ReP-Gs-Rdg"/>
                         <outlet property="fileNameTextField" destination="4SB-Ki-qJv" id="RK5-aM-auq"/>
+                        <outlet property="initialMainView" destination="mgK-U6-Zfo" id="Ewz-nX-GCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
