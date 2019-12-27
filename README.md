@@ -7,3 +7,5 @@ Did that way, cause when asked it was said that the patterns from the csv files 
 
 The first screenasks for the name of the file, just to make it easier to test, this way you can put several files in the app and choose which you want to parse.
 It was done using the MVC pattern, using Storyboards with a NavigationController to make it easier to parse different files.
+
+Jaime Oliveira Terra
